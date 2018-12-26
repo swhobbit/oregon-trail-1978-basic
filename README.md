@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/fortran-gaming/oregon-trail-1975-basic.svg?branch=master)](https://travis-ci.com/fortran-gaming/oregon-trail-1975-basic)
 
-# Oregon Trail 1975 & 1978
+# Oregon Trail 1978
 
 
 ```basic
@@ -37,7 +37,6 @@ or other favorite BASIC interpreter.
 
 ## Run
 
-* 1975: `bwbasic oregon-trail-1975.bas`
 * 1978: `bwbasic oregon-trail-1978.bas`
 
 
