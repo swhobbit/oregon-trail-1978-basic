@@ -32,5 +32,5 @@ Modified to work with this https://github.com/LiquidFox1776/LF-BASIC BASIC Inter
 
 ## Notes
 
-[1978 version](https://github.com/clintmoyer/oregon-trail) that's in this repo was carefully OCR'd and updated by @clintmoyer, tweaked by @scivision for ANSI BASIC compliance, retweaked by LiquidFox1776 to be mostly compliant with ECMA-55 standard. It has been play tested several times and appears to work as intended. 
+[1978 version](https://github.com/clintmoyer/oregon-trail) that's in this repo was carefully OCR'd and updated by @clintmoyer, tweaked by @scivision for ANSI BASIC compliance, retweaked by LiquidFox1776 to be mostly compliant with ECMA-55 standard. It has been play tested several times and appears to work as intended. The shooting routing requires a special function called CLK.
 
