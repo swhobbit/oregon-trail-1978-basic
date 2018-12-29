@@ -24,25 +24,13 @@ REM July-August 1978 issue of Creative Computing.
 50 REM CDC CYBER 70/73-26 BASIC 3-1
 ```
 
-Very lightly modified to work with modern platform-independent ANSI BASIC interpreter such as `bwbasic`
-
-
-
-## Prereq
-```sh
-apt install bwbasic
-```
-
-or other favorite BASIC interpreter.
+Modified to work with this https://github.com/LiquidFox1776/LF-BASIC BASIC Interpreter
 
 ## Run
 
-* 1978: `bwbasic oregon-trail-1978.bas`
-
+* 1978: `python BASIC.py oregon-trail-1978.bas`
 
 ## Notes
-Because the BASIC dialect used is old 1970s unstructured style, a very basic compiler is needed.
-Because of this messy style, it is not worth fixing, but rather if someone wanted to preserve in a modern reinterpretation of classic style, I would suggest using Fortran with a module dedicated to registers for game state.
 
-[1978 version](https://github.com/clintmoyer/oregon-trail) that's in this repo was carefully OCR'd and updated by @clintmoyer, tweaked by @scivision for ANSI BASIC compliance
+[1978 version](https://github.com/clintmoyer/oregon-trail) that's in this repo was carefully OCR'd and updated by @clintmoyer, tweaked by @scivision for ANSI BASIC compliance, retweaked by LiquidFox1776 to be mostly compliant with ECMA-55 standard. It has been play tested several times and appears to work as intended. 
 
