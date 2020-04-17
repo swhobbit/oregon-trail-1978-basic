@@ -13,7 +13,7 @@
 62 REM    2520 BROADWAY DRIVE
 63 REM    ST. PAUL, MN  55113
 80 REM
-91 DIM S$(4)
+91 DIM S$(7)
 92 DIM D$(4)
 93  R1 = 0
 100 REM  *FOR THE MEANING OF THE VARIABLES USED, LIST LINES 6470-6790*
@@ -44,7 +44,7 @@
 780 GOTO 810
 790 D9 = 0
 REM *** INITIAL PURCHASES***
-810 X1 =  - 1
+810 X1 = -1
 820 K8 = 0
 821 S4 = 0
 822 F1 = 0
@@ -96,15 +96,13 @@ REM *** INITIAL PURCHASES***
 1150 PRINT "You overspent -- you only had $700 to spend. Buy again."
 1160 GOTO 830
 1170 B = 50 * B
-1180 PRINT "After all your purchases, you now have "; T; " dollars left"
+1180 PRINT "After all your purchases, you now have"; T; " dollars left"
 1190 PRINT
-1200 PRINT "Monday, March 29 1847"
-1210 PRINT
+1200 PRINT "Monday, March 29 1847: ";
 1220 GOTO 1750
 1230 IF M >= 2040 THEN 5430
 1240 REM ***SETTING DATE***
 1250 D3 = D3 + 1
-1260 PRINT
 1270 PRINT "Monday, ";
 1280 IF D3 > 10 THEN 1300
 1290 GO TO 1310, 1330, 1350, 1370, 1390, 1410, 1430, 1450, 1470, 1490 ON D3
@@ -150,7 +148,7 @@ REM *** INITIAL PURCHASES***
 1690 PRINT "You have been on the trail too long  -- ---"
 1700 PRINT "Your family dies in the first blizzard of winter."
 1710 GOTO 5170
-1720 PRINT "1847"
+1720 PRINT "1847: ";
 1730 PRINT
 1740 REM ***BEGINNING EACH TURN***
 1750 IF F >= 0 THEN 1770
@@ -170,25 +168,25 @@ REM *** INITIAL PURCHASES***
 1890 T = INT(T)
 1900 M = INT(M)
 1910 M2 = M
-1920 IF S4=1 THEN 1950
-1930 IF K8=1 THEN 1950
+1920 IF S4 = 1 THEN 1950
+1930 IF K8 = 1 THEN 1950
 1940 GOTO 1990
 1950 T = T - 20
 1960 IF T < 0 THEN 5080
 1970 PRINT "Doctor's bill is $20"
 1980 K8 = 0
 1981 S4 = 0
-1990 IF M9=1 THEN 2020
-2000 PRINT "Total mileage is "; M
+1990 IF M9 = 1 THEN 2020
+2000 PRINT "Total mileage is"; M
 2010 GOTO 2040
 2020 PRINT "Total mileage is 950"
 2030 M9 = 0
 2040 PRINT "Food","Bullets","Clothing","Misc. Supp.","Cash"
 2050 PRINT F,B,C,M1,T
-2060 IF X1= - 1 THEN 2170
+2060 IF X1 = -1 THEN 2170
 2070 X1 = X1 * (-1)
-2080 PRINT "Do you want to (1) stop at the next Fort, (2) hunt, ";
-2090 PRINT "or (3) continue?"
+2080 PRINT "Do you want to (1) stop at the next fort, (2) hunt, ";
+2090 PRINT "or (3) continue";
 2091 X = 0
 2100 INPUT X
 2110 IF X > 2 THEN 2150
@@ -197,13 +195,13 @@ REM *** INITIAL PURCHASES***
 2140 GOTO 2270
 2150 X = 3
 2160 GOTO 2270
-2170 PRINT "Do you want to (1) hunt, or (2) continue?"
+2170 PRINT "Do you want to (1) hunt, or (2) continue";
 2181 X = 0
 2180 INPUT X
-2190 IF X=1 THEN 2210
+2190 IF X = 1 THEN 2210
 2200 X = 2
 2210 X = X + 1
-2220 IF X=3 THEN 2260
+2220 IF X = 3 THEN 2260
 2230 IF B > 39 THEN 2260
 2240 PRINT "Tough. You need more bullets to go hunting."
 2250 GOTO 2170
@@ -244,7 +242,7 @@ REM ***HUNTING***
 2580 GOSUB 6140
 2590 IF B1 <= 1 THEN 2660
 2600 GOSUB 7000
-2502 PRINT "Debug: random is "; FNM(100)
+2502 PRINT "Debug: random is"; FNM(100)
 2605 IF FNM(100) < 13 * B1 THEN 2710
 2610 F = F + 48 - 2 * B1
 2620 PRINT "Nice shot -- right on target -- good eatin' tonight!!"
@@ -297,7 +295,7 @@ REM ***RIDERS ATTACK***
 3010 IF T1 < 1 THEN 2970
 3020 IF T1 > 4 THEN 2970
 3030 T1 = INT(T1)
-3040 IF S5=1 THEN 3330
+3040 IF S5 = 1 THEN 3330
 3050 IF T1 > 1 THEN 3110
 3060 M = M + 20
 3070 M1 = M1 - 15
@@ -341,7 +339,7 @@ REM ***RIDERS ATTACK***
 3440 GOTO 3470
 3450 PRINT "They did not attack."
 3460 GOTO 3550
-3470 IF S5=0 THEN 3500
+3470 IF S5 = 0 THEN 3500
 3480 PRINT "Riders were friendly, but check for possible losses."
 3490 GOTO 3550
 3500 PRINT "Riders were hostile -- check for losses."
@@ -353,7 +351,7 @@ REM ***SELECTION OF EVENTS***
 3560 RESTORE
 3570 GOSUB 7000
 3580 D1 = D1 + 1
-3590 IF D1=16 THEN 4670
+3590 IF D1 = 16 THEN 4670
 3595 D = 0
 3600 READ D
 3610 IF FNM(100) > D THEN 3580
@@ -457,7 +455,7 @@ REM ***SELECTION OF EVENTS***
 4510 PRINT "don't ";
 4520 C1 = 1
 4530 PRINT "have enough clothing to keep you warm."
-4540 IF C1=0 THEN 4710
+4540 IF C1 = 0 THEN 4710
 4550 GOTO 6300
 4560 PRINT "Hail storm -- supplies damaged."
 4570 GOSUB 7000
@@ -466,8 +464,8 @@ REM ***SELECTION OF EVENTS***
 4590 GOSUB 7000
 4595 M1 = M1 - 4 - FNM(3)
 4600 GOTO 4710
-4610 IF E=1 THEN 6300
-4620 IF E=3 THEN 4650
+4610 IF E = 1 THEN 6300
+4620 IF E = 3 THEN 4650
 4630 GOSUB 7000
 4635 IF FNM(100) > 25 THEN 6300
 4640 GOTO 4710
@@ -498,13 +496,13 @@ REM ***SELECTION OF EVENTS***
 4840 PRINT "The going gets slow."
 4850 GOSUB 7000
 4855 M = M - 45 - FNM(50)
-4860 IF F1=1 THEN 4900
+4860 IF F1 = 1 THEN 4900
 4870 F1 = 1
 4880 GOSUB 7000
 4885 IF FNM(10) < 8 THEN 4970
 4890 PRINT "You made it safely through south pass -- no snow."
 4900 IF M < 1700 THEN 4940
-4910 IF F2=1 THEN 4940
+4910 IF F2 = 1 THEN 4940
 4920 F2 = 1
 4930 GOSUB 7000
 4935 IF FNM(10) < 7 THEN 4970
@@ -529,7 +527,7 @@ REM ***DYING***
 5100 GOTO 5120
 5110 PRINT "You ran out of medical supplies."
 5120 PRINT "You died of ";
-5130 IF K8=1 THEN 5160
+5130 IF K8 = 1 THEN 5160
 5140 D$(1) = "dysentery"
 5142 D$(2) = "measles"
 5143 D$(3) = "pneumonia"
@@ -543,14 +541,14 @@ REM ***DYING***
 5180 PRINT "Due to your unfortunate demise, there are a few"
 5190 PRINT "formalities we must go through."
 5200 PRINT
-5210 PRINT "Would you like a minister?"
+5210 PRINT "Would you like a minister";
 5220 INPUT C$
-5230 PRINT "Would you like a fancy funeral?"
+5230 PRINT "Would you like a fancy funeral";
 5240 INPUT C$
-5250 PRINT "Would you like us to inform your next of kin?"
+5250 PRINT "Would you like us to inform your next of kin";
 5260 INPUT C$
-5270 IF C$="Y" THEN 5310
-5275 IF C$="y" THEN 5310
+5270 IF C$ = "Y" THEN 5310
+5275 IF C$ = "y" THEN 5310
 5280 PRINT "But your Aunt Kate in St. Louis is really worried about you!"
 5290 PRINT
 5300 GOTO 5330
@@ -600,23 +598,23 @@ REM **BELLS IN LINES 5470, 5480**
 5730 GOTO 5920
 5740 IF D3 > 155 THEN 5780
 5750 D3 = D3 - 124
-5760 PRINT "August "; D3; " 1847"
+5760 PRINT "August ";
 5770 GOTO 5920
 5780 IF D3 > 155 THEN 5820
 5790 D3 = D3 - 155
-5800 PRINT "September "; D3; " 1847"
+5800 PRINT "September ";
 5810 GOTO 5920
 5820 IF D3 > 216 THEN 5860
 5830 D3 = D3 - 155
-5840 PRINT "October "; D3; " 1847"
+5840 PRINT "October ";
 5850 GOTO 5920
 5860 IF D3 > 246 THEN 5900
 5870 D3 = D3 - 246
-5880 PRINT "November "; D3; " 1847"
+5880 PRINT "November ";
 5890 GOTO 5920
 5900 D3 = D3 - 246
-5910 PRINT "December "; D3; " 1847"
-5920 PRINT
+5910 PRINT "December ";
+5920 PRINT D3; " 1847"
 5930 PRINT "Food","Bullets","Clothing","Misc. Supp.","Cash"
 5940 IF B > 0 THEN 5960
 5950 B = 0
@@ -653,19 +651,21 @@ REM **BELLS IN LINES 5470, 5480**
 6160 S$(2) = "BLAM"
 6170 S$(3) = "POW"
 6180 S$(4) = "WHAM"
+6181 S$(5) = "CRACK"
+6162 S$(6) = "BOOM"
+6183 S$(7) = "ROAR"
 6185 GOSUB 7000
-6190 S6 =  FNM(4) + 1
-6200 PRINT "Enter (in upper or lower case); "; S$(S6)
+6190 S6 = FNM(7) + 1
+6200 PRINT "Enter (in upper or lower case); "; S$(S6);
 6210 B3 = TIM(0)
 6220 INPUT C$
 6230 B1 = TIM(0)
-6252 PRINT "Debug: times "; B1; " "; B3; " Elapsed = "; B1-B3 ;
+6252 PRINT "DEBUG: Elapsed "; B1-B3 ;
 6240 B1 = ((B1 - B3) * 2) - (D9 - 1)
-6250 PRINT
-6192 PRINT "Debug: S6 is"; S6; ", expect "; S$(S6); ", typed "; C$
+6250 PRINT "S6"; S6; ", expect "; S$(S6); ", typed "; C$
 6255 IF B1 > 0 THEN 6260
 6257 B1 = 0
-6260 IF C$=S$(S6) THEN 6280
+6260 IF C$ = S$(S6) THEN 6280
 6270 B1 = 9
 6280 RETURN
 6290 REM ***ILLNESS SUB-ROUTINE***
@@ -687,18 +687,18 @@ REM **BELLS IN LINES 5470, 5480**
 6420 M = M - 5
 6430 M1 = M1 - 5
 6440 IF M1 < 0 THEN 5110
-6450 IF L1=1 THEN 4940
+6450 IF L1 = 1 THEN 4940
 6460 GOTO 4710
 7000 REM RANDOM NUMBER GENERATOR BETWEEN 0 AND 2 ** 32
-7010     PRINT "Debug random: old"; R1;
+7010     REM PRINT "Debug random: old"; R1;
 7020     REM (RE)INITIALIZE RANDOM NUMBER GENERATOR
 7030     IF R1 > 0 GOTO 7100
 7040     R1 = TIM(X) + DAT(X)
 7100     R1 = 65541 * R1
 7200     IF R1 <= (2 ** 32) THEN 7500
-7200     PRINT "BIG"; R1;
+7200     REM PRINT "BIG"; R1;
 7400     R1 = FNM(2**32)
-7500     PRINT "new"; R1
+7500     REM PRINT "new"; R1
 7600     RETURN
 8800 REM ***IDENTIFICATION OF VARIABLES IN THE PROGRAM***
 8480 REM A = AMOUNT SPENT ON ANIMALS
