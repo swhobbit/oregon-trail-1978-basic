@@ -1,0 +1,70 @@
+/* REXX */
+/*-------------------------------------------------------------------- */
+/*                          OREGON EXEC                                */
+/*                                                                     */
+/*          Wrapper to run ther Oregon Trail 1978 Basic program.       */
+/*                                                                     */
+/*         Date: 31 Mar 2020                                           */
+/*       Author: ahd@kew.com (Drew Derbyshire)                         */
+/*      Address: Kendra Electronic Wonderworks                         */
+/*               Kenmore, WA                                           */
+/*-------------------------------------------------------------------- */
+ 
+signal on novalue                 /* Trap uninitialized variables */
+address "COMMAND"                 /* Require precise command syntax */
+ 
+if userid() = 'SWHOBBIT' then 'ACCESS 1A1 B'      /* testing */
+ 
+parse upper source sys org fn ft fm cmd env .
+parse arg text
+ 
+asked = 'ASKED'
+ 
+'GLOBALV SELECT' cmd 'GET' 'HELP'
+ 
+'VMFCLEAR'
+ 
+if help <> asked then do
+   say 'Do you need instructions for' cmd || '? (Y/n)'
+   pull answer
+   if abbrev('NO', answer, 1) then do
+      say 'You will not be asked again.  In the future, for help enter:'
+      say ''
+      say '   HELP OREGON'
+      say ''
+      say 'before you start the game.'
+      say ''
+      say ''
+      'GLOBALV SELECT' cmd ' SETPL HELP' asked
+   end
+   else do
+      'HELP' cmd
+   end
+end
+say ''
+say 'Enter #HX to abort the program at any time.'
+say ''
+'BASIC' cmd '( LONG' text
+ 
+exit rc
+ 
+ 
+novalue:
+ trace n
+ /* ---------------------------------------------------------------- */
+ /*            Report and exit after an uninitialized variable       */
+ /* ---------------------------------------------------------------- */
+ 
+parse upper source . . fname ftype fmode cmdname .
+message = 'INTERNAL ERROR:' ,
+    'novalue error for command' cmdname 'at line' sigl
+if ftype = 'XEDIT' then do
+   'EMSG' message
+   'EMSG File' fname ftype fmode  'line' sigl || ':' sourceline(sigl)
+   'SOS ALARM'
+end
+else do
+   say message
+   say 'File' fname ftype fmode 'line' sigl || ':' sourceline(sigl)
+end
+exit sigl
