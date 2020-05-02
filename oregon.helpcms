@@ -1,0 +1,86 @@
+.cm *** GENERATED FILE - DO NOT EDIT *** OREGON   HELPCMS  H2
+.cm Converted from OREGON   HELPCMS  J1 on 1 Apr 2020 17:46:38
+.cm
+.cm *------------------------------------------------------------------ *
+.cm *                      OREGON HELPCMS                               *
+.cm *                                                                   *
+.cm *       Help file for the 1978 edition of Oregon Trail              *
+.cm *                                                                   *
+.cm *      Date: 1 Apr 2020                                             *
+.cm *    Author: ahd@kew.com (Drew Derbyshire)                          *
+.cm *   Address: Kendra Electronic Wonderworks                          *
+.cm *            Kenmore, WA                                            *
+.cm *------------------------------------------------------------------ *
+.cs 1 on
+ 
+OREGON is the classic game to simulate travel on the 1847 Oregon Trail.
+ 
+.CS 2 on                         .CS FORMAT on
++--------------+--------------------------------------------------------------+
+| OREGON       |                                                              |
++--------------+--------------------------------------------------------------+
+.CS 2 off                        .CS FORMAT off
+ 
+.CS 3 on                         .CS PARMS on
+PARAMETERS
+ 
+    The OREGON command accepts no parameters on the command line.
+.CS 3 off                        .CS PARMS off
+ 
+.CS 4 on                         .CS OPTIONS on
+OPTIONS
+ 
+    The OREGON command accepts no options on the command line.
+.CS 4 off                        .CS OPTIONS off
+ 
+.CS 5 on                         .CS NOTES on
+HOW TO USE
+ 
+Note: If  the screen is  nearly full, you  may need to  press PA2 to  clear the
+      screen to get the prompt.
+ 
+    All input is via the keyboard once the program starts runing.  This program
+    simulates  a trip  over the  Oregon  Trail from  Independence, Missouri  to
+    Oregon City, Oregon in 1847.  Your family  of five will cover the 2040 mile
+    Oregon Trail in 5 to 6 months --- if you make it alive.
+ 
+    You saved  $900 to  spend for  the trip, and  you've just  paid $200  for a
+    wagon.
+ 
+    You need to spend the rest of your money on the following items:
+ 
+    Oxen -  You can  spend $200-$300  on your  team.  The  more you  spend, the
+           faster you'll go because you'll have better animals.
+ 
+    Food - The more you have, the less chance there is of getting sick.
+ 
+    Ammunition - $1 buys a belt of 50 bullets.  You need bullets for attacks by
+           animals and bandits, and for hunting food.
+ 
+    Clothing - This is especially important  for the cold weather you encounter
+           when crossing the mountains.
+ 
+    Miscellaneous supplies -  This includes medicine and other  things you need
+           for sickness and emergency repairs.
+ 
+    You can spend  all your money before you  start your trip, or  you can save
+    some  of your  cash to  spend at  Forts  along The  way when  you run  low.
+    However, items cost  more at the Forts.  You can also go  hunting along the
+    way to get more food.
+ 
+    Whenever you have to use your trusty rifle  along the way, you will be told
+    to type in a word (one that sounds like a gun shot). The faster you type in
+    that word (in UPPER or lower case) and press the ENTER key, the better luck
+    you'll have with your gun.
+ 
+    At each turn, all  items are shown in dollar amounts  except bullets.  when
+    asked to enter money amounts, don't use a $.
+ 
+CREDITS
+ 
+    The original 1971  program was by Bill Heinemann based  on support research
+    and materials by Don Ravitsch.
+ 
+    This  the 1978  version,  written by  the  Minnesota Educational  Computing
+    Consortium Staff.  It was ported to  the IBM CALL/OS BASIC  environment for
+    the Living Computers: Museum + Labs by Drew Derbyshire.
