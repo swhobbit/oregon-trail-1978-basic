@@ -15,11 +15,10 @@
 80 REM
 91 DIM S$(7)
 92 DIM D$(4)
-93  R1 = 0
+93  R1 = TIM(X) + DAT(X)
 100 REM  *FOR THE MEANING OF THE VARIABLES USED, LIST LINES 6470-6790*
 110 REM
 140 REM Function to return Modulo X of current random number
-145 REM (GOSUB 7000 first!)
 150 DEF FNM(X) = R1 - (INT(R1 / X) * X)
 175 PRINT "Welcome to the Oregon Trail."
 230 REM ***INSTRUCTIONS***
@@ -96,13 +95,14 @@ REM *** INITIAL PURCHASES***
 1150 PRINT "You overspent -- you only had $700 to spend. Buy again."
 1160 GOTO 830
 1170 B = 50 * B
-1180 PRINT "After all your purchases, you now have"; T; " dollars left"
+1180 PRINT "After all your purchases, you now have"; T; "dollars left"
 1190 PRINT
 1200 PRINT "Monday, March 29 1847: ";
 1220 GOTO 1750
 1230 IF M >= 2040 THEN 5430
 1240 REM ***SETTING DATE***
 1250 D3 = D3 + 1
+1255 PRINT
 1270 PRINT "Monday, ";
 1280 IF D3 > 10 THEN 1300
 1290 GO TO 1310, 1330, 1350, 1370, 1390, 1410, 1430, 1450, 1470, 1490 ON D3
@@ -149,7 +149,6 @@ REM *** INITIAL PURCHASES***
 1700 PRINT "Your family dies in the first blizzard of winter."
 1710 GOTO 5170
 1720 PRINT "1847: ";
-1730 PRINT
 1740 REM ***BEGINNING EACH TURN***
 1750 IF F >= 0 THEN 1770
 1760 F = 0
@@ -242,7 +241,6 @@ REM ***HUNTING***
 2580 GOSUB 6140
 2590 IF B1 <= 1 THEN 2660
 2600 GOSUB 7000
-2502 PRINT "Debug: random is"; FNM(100)
 2605 IF FNM(100) < 13 * B1 THEN 2710
 2610 F = F + 48 - 2 * B1
 2620 PRINT "Nice shot -- right on target -- good eatin' tonight!!"
@@ -311,7 +309,7 @@ REM ***RIDERS ATTACK***
 3170 IF B1 <= 4 THEN 3220
 3180 PRINT "Lousy shot -- you got knifed."
 3190 K8 = 1
-3200 PRINT "You have to see ol' doc blanchard."
+3200 PRINT "You have to see ol' Doc Blanchard."
 3210 GOTO 3470
 3220 PRINT "Kinda slow with your Mississippi rifle."
 3230 GOTO 3470
@@ -594,7 +592,7 @@ REM **BELLS IN LINES 5470, 5480**
 5690 PRINT "Sunday, ";
 5700 IF D3 > 124 THEN 5740
 5710 D3 = D3 - 93
-5720 PRINT "July "; D3; " 1847"
+5720 PRINT "July ";
 5730 GOTO 5920
 5740 IF D3 > 155 THEN 5780
 5750 D3 = D3 - 124
@@ -614,7 +612,7 @@ REM **BELLS IN LINES 5470, 5480**
 5890 GOTO 5920
 5900 D3 = D3 - 246
 5910 PRINT "December ";
-5920 PRINT D3; " 1847"
+5920 PRINT D3; "1847"
 5930 PRINT "Food","Bullets","Clothing","Misc. Supp.","Cash"
 5940 IF B > 0 THEN 5960
 5950 B = 0
@@ -660,9 +658,9 @@ REM **BELLS IN LINES 5470, 5480**
 6210 B3 = TIM(0)
 6220 INPUT C$
 6230 B1 = TIM(0)
-6252 PRINT "DEBUG: Elapsed "; B1-B3 ;
+6252 REM PRINT "DEBUG: Elapsed "; B1-B3 ;
 6240 B1 = ((B1 - B3) * 2) - (D9 - 1)
-6250 PRINT "S6"; S6; ", expect "; S$(S6); ", typed "; C$
+6250 REM PRINT "S6"; S6; ", expect "; S$(S6); ", typed "; C$
 6255 IF B1 > 0 THEN 6260
 6257 B1 = 0
 6260 IF C$ = S$(S6) THEN 6280
@@ -689,17 +687,11 @@ REM **BELLS IN LINES 5470, 5480**
 6440 IF M1 < 0 THEN 5110
 6450 IF L1 = 1 THEN 4940
 6460 GOTO 4710
-7000 REM RANDOM NUMBER GENERATOR BETWEEN 0 AND 2 ** 32
-7010     REM PRINT "Debug random: old"; R1;
-7020     REM (RE)INITIALIZE RANDOM NUMBER GENERATOR
-7030     IF R1 > 0 GOTO 7100
-7040     R1 = TIM(X) + DAT(X)
-7100     R1 = 65541 * R1
-7200     IF R1 <= (2 ** 32) THEN 7500
-7200     REM PRINT "BIG"; R1;
-7400     R1 = FNM(2**32)
-7500     REM PRINT "new"; R1
-7600     RETURN
+7000 REM UPDATE R1, THE CURRENT RANDOM NUMBER
+7100 IF R1 > 0 GOTO 7300
+7200 R1 = TIM(X) * DAT(X)
+7300 R1 = INT(RND(R1) * 1000000)
+7500 RETURN
 8800 REM ***IDENTIFICATION OF VARIABLES IN THE PROGRAM***
 8480 REM A = AMOUNT SPENT ON ANIMALS
 8490 REM B = AMOUNT SPENT ON AMMUNITION
